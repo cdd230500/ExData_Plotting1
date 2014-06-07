@@ -1,0 +1,7 @@
+w = read.table("household_power_consumption.txt",sep= ";", header=T,stringsAsFactors = FALSE)
+t = subset(w, w$Date == "1/2/2007"|w$Date == "2/2/2007",stringsAsFactors = FALSE)
+a=data.matrix(t$Global_active_power)
+a=as.numeric(a)
+hist(a, xlab = "Global Active Power(kilowatts)", ylab="Frequency", main= "Global Active Power",col="red")
+dev.copy(png, file = "plot1.png") 
+dev.off() 
