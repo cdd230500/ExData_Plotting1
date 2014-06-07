@@ -1,5 +1,7 @@
 w = read.table("household_power_consumption.txt",sep= ";", header=T,stringsAsFactors = FALSE)
 t = subset(w, w$Date == "1/2/2007"|w$Date == "2/2/2007",stringsAsFactors = FALSE)
-plot(t$Global_active_power, type = "l", pch=20, ylab = "Global Active Power(kilowatts)", xlab="Frequency")
+plot(t$Global_active_power, type = "l", axes = FALSE, pch=20, ylab = "Global Active Power(kilowatts)", xlab="Frequency")
+axis(side=1, at=c(0,1500,2900),labels=c("Tru","Fri","Sat")) 
+axis(2)
 dev.copy(png, file = "plot2.png") 
 dev.off() 
